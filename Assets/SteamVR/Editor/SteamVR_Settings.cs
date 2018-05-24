@@ -11,7 +11,9 @@ using System.IO;
 [InitializeOnLoad]
 public class SteamVR_Settings : EditorWindow
 {
-	const bool forceShow = false; // Set to true to get the dialog to show back up in the case you clicked Ignore All.
+    //Disabled obsolete warnings, will have to use FullScreenMode
+#pragma warning disable 0618
+    const bool forceShow = false; // Set to true to get the dialog to show back up in the case you clicked Ignore All.
 
 	const string ignore = "ignore.";
 	const string useRecommended = "Use recommended ({0})";
@@ -63,7 +65,7 @@ public class SteamVR_Settings : EditorWindow
 
 	static void Update()
 	{
-		bool show =
+        bool show =
 			(!EditorPrefs.HasKey(ignore + buildTarget) &&
 				EditorUserBuildSettings.activeBuildTarget != recommended_BuildTarget) ||
 			(!EditorPrefs.HasKey(ignore + showUnitySplashScreen) &&
@@ -684,5 +686,6 @@ public class SteamVR_Settings : EditorWindow
 
 		GUILayout.EndHorizontal();
 	}
+#pragma warning restore 0618
 }
 
