@@ -7,7 +7,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Reflection;
-using Valve.VR;
 
 [RequireComponent(typeof(Camera))]
 public class SteamVR_Camera : MonoBehaviour
@@ -17,10 +16,10 @@ public class SteamVR_Camera : MonoBehaviour
 	public Transform head { get { return _head; } }
 	public Transform offset { get { return _head; } } // legacy
 	public Transform origin { get { return _head.parent; } }
-
-	public new Camera camera { get; private set; }
-
-	[SerializeField]
+#pragma warning disable 0109
+    public new Camera camera { get; private set; }
+#pragma warning restore 0109
+    [SerializeField]
 	private Transform _ears;
 	public Transform ears { get { return _ears; } }
 
